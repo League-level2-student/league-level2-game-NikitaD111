@@ -1,12 +1,15 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -30,7 +33,8 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
     JButton button2;
     JButton button3;
     JTextField textField;
-
+    Cursor newCursor;
+    
     int cursorX;
     int cursorY;
     int cursorWidth;
@@ -43,14 +47,22 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
 
         this.addMouseMotionListener( this );
     }
+    public void paintComponent(Graphics g) {
+        super.paintComponent( g );
+        g.setColor( bgColor );
+        g.drawImage( this.castle, 0, 0, Screen.WIDTH , (Screen.HEIGHT*4)/4, null );
+         g.drawImage( this.taskbar, 0, (Screen.HEIGHT*3)/4, Screen.WIDTH , Screen.HEIGHT/4, null );
+          
 
+    }
+    
     public void setup() {
-        this.game.frame.setTitle( "Swing Components and Graphics Example" );
+        this.game.frame.setTitle( "Struggle_of_Order" );
         this.setLayout( new BorderLayout() );
         
         bgColor = Color.GREEN;
         
-        labelStory = new JLabel( "Choose where you want to go" );
+        labelStory = new JLabel( "         Choose where you want to go" );
         labelStory.setFont( new Font( "Tahoma", ( Font.BOLD | Font.ITALIC ), 24 ) );
 
         button1 = new JButton( "Market" );
@@ -64,19 +76,19 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         button1.addActionListener( this );
         button2.addActionListener( this );
         button3.addActionListener( this );
-
+        button1.setBackground(new Color(0,0,0,0));
         textField = new JTextField( 20 );
-        textField.setText( "<Here is your fate>" );
+        textField.setText( "Choose your fate" );
         textField.setEditable( false );
 
         a = new JPanel();
         a.setLayout( new GridBagLayout() );
-        a.setBackground( Color.BLACK );
+        a.setBackground(new Color(0,0,0,0));
         a.setPreferredSize( new Dimension( Screen.WIDTH, Screen.HEIGHT / 4 ) );
         a.setMaximumSize( new Dimension( Screen.WIDTH, Screen.HEIGHT / 4 ) );
         a.setAlignmentX( Component.LEFT_ALIGNMENT );
         a.setAlignmentY( Component.BOTTOM_ALIGNMENT );
-
+        
         addStoryLine();
         addButtons();
         addTextField();
@@ -85,15 +97,16 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         cursorY = 100;
         cursorWidth = 75;
         cursorHeight = 75;
-
+        
+        newCursor = Toolkit.getDefaultToolkit().createCustomCursor( cursor, new Point(0, 20), "inf cursor");
+        game.frame.setCursor( newCursor );
+        
         this.add( a, BorderLayout.SOUTH );
         game.frame.pack();
         this.repaint();
     }
 
     public void addStoryLine() {
-        Border border = BorderFactory.createLineBorder( Color.BLACK );
-        labelStory.setBorder( border );
 
         GridBagConstraints gc = new GridBagConstraints();
         gc.anchor = GridBagConstraints.EAST;
@@ -141,13 +154,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         a.add( textField, gc );
     }
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent( g );
-
-        g.setColor( bgColor );
-        g.drawImage( this.castle, 0, 0, Screen.WIDTH , (Screen.HEIGHT*3)/4, null );
-        g.drawImage( this.cursor, cursorX , cursorY, cursorWidth, cursorHeight, null );
-    }
+    
 
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -175,16 +182,16 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         JButton buttonPressed = (JButton)arg0.getSource();
 
         if( buttonPressed == button1 ) {
-            bgColor = Color.PINK;
-            textField.setText( "Button A pressed" );
+            bgColor = Color.WHITE;
+            textField.setText( "Traveling to Market" );
             this.repaint();
         } else if( buttonPressed == button2 ) {
-            bgColor = Color.GREEN;
-            textField.setText( "Button B pressed" );
+            bgColor = Color.WHITE;
+            textField.setText( "Traveling to Fields" );
             this.repaint();
         } else if( buttonPressed == button3 ) {
-            bgColor = Color.BLUE;
-            textField.setText( "Button C pressed" );
+            bgColor = Color.WHITE;
+            textField.setText( "Traveling to Castle" );
             this.repaint();
         }
     }

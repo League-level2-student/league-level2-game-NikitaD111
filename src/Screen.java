@@ -27,6 +27,7 @@ public class Screen extends JPanel {
     public BufferedImage alienSmall;
     public BufferedImage castle;
     public BufferedImage cursor;
+    public BufferedImage taskbar;
     
     JFrame frame;
     GridBagConstraints c;
@@ -48,6 +49,7 @@ public class Screen extends JPanel {
             alienSmall = ImageIO.read(this.getClass().getResourceAsStream("enemy_small.png"));
             castle = ImageIO.read(this.getClass().getResourceAsStream("kingdom.jpg"));
             cursor = ImageIO.read(this.getClass().getResourceAsStream("cursor.png"));
+            taskbar = ImageIO.read(this.getClass().getResourceAsStream("taskbar1.png"));
         } catch( IOException e ) {
             System.out.println( "ERROR: unable to load image files" );
         }
