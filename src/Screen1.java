@@ -76,10 +76,10 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         button1.addActionListener( this );
         button2.addActionListener( this );
         button3.addActionListener( this );
-        button1.setBackground(new Color(0,0,0,0));
         textField = new JTextField( 20 );
         textField.setText( "Choose your fate" );
         textField.setEditable( false );
+        
 
         a = new JPanel();
         a.setLayout( new GridBagLayout() );
