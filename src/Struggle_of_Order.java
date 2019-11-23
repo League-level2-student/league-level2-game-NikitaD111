@@ -4,14 +4,15 @@
 	import java.awt.event.KeyListener;
 
 	import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 	public class Struggle_of_Order implements KeyListener {
 	    private Screen currentScreen;
 	    JFrame frame;
+	    Screen screen0;
 	    Screen screen1;
 	    Screen screen2;
 	    Screen screen3;
-	    Screen screen4;
 
 	    public  Struggle_of_Order() {
 	        frame = new JFrame();
@@ -20,10 +21,11 @@
 	        frame.setVisible( true );
 	        frame.addKeyListener( this );
 	        
+	        screen0 = new Screen0( this );
 	        screen1 = new Screen1( this );
 	       
 	        
-	        changeScreen( screen1 );
+	        changeScreen( screen0 );
 	    }
 	    
 	    public void changeScreen( Screen screen ) {
@@ -41,10 +43,13 @@
 	        int keyCode = arg0.getKeyCode();
 	        
 	        if( keyCode == KeyEvent.VK_ENTER ) {
-	            if( currentScreen == screen1 ) {
-	                changeScreen( screen2 );
+	            if( currentScreen == screen0 ) {
+	                changeScreen( screen1 );
 	                System.out.println( currentScreen );
 	           
+	        }
+	        if (keyCode == KeyEvent.VK_SPACE){
+	        	
 	        }
 	    }
 	    }
