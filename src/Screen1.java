@@ -67,7 +67,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
 
         button1 = new JButton( "Market" );
         button2 = new JButton( "Fields" );
-        button3 = new JButton( "Castle" );
+        button3 = new JButton( "Kingdom" );
 
         // Don't allow button presses to shift focus on the keyListener in the frame
         button1.setFocusable( false );
@@ -120,7 +120,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
     public void addButtons() {
         GridBagConstraints gc = new GridBagConstraints();
 
-        // Number of pixels between adjacent components: top, left, bottom, right sides
+        
         gc.insets = new Insets( 20, 0, 0, 0 );
 
         gc.anchor = GridBagConstraints.CENTER;
@@ -183,16 +183,18 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
 
         if( buttonPressed == button1 ) {
             bgColor = Color.WHITE;
-            textField.setText( "Traveling to Market" );
+            textField.setText( "Traveling to Everlast Market" );
+            
             this.repaint();
         } else if( buttonPressed == button2 ) {
             bgColor = Color.WHITE;
-            textField.setText( "Traveling to Fields" );
+            textField.setText( "Traveling to Kenzington Fields" );
             this.repaint();
         } else if( buttonPressed == button3 ) {
             bgColor = Color.WHITE;
-            textField.setText( "Traveling to Castle" );
+            textField.setText( "Traveling to The Cerean Kingdom" );
             this.repaint();
         }
+        
     }
 }

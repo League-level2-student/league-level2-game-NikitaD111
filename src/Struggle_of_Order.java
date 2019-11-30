@@ -41,7 +41,9 @@ import javax.swing.JOptionPane;
 	    @Override
 	    public void keyPressed(KeyEvent arg0) {
 	        int keyCode = arg0.getKeyCode();
-	        
+	        if(currentScreen == screen0) {
+	        	
+	        }
 	        if( keyCode == KeyEvent.VK_ENTER ) {
 	            if( currentScreen == screen0 ) {
 	                changeScreen( screen1 );
