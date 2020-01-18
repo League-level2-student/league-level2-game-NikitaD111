@@ -47,9 +47,6 @@ public class Screen extends JPanel {
         frame.setPreferredSize( new Dimension( Screen.WIDTH, Screen.HEIGHT ) );
         
         try {
-            spaceShip = ImageIO.read(this.getClass().getResourceAsStream("shipUp.png"));
-            alien = ImageIO.read(this.getClass().getResourceAsStream("enemy.png"));
-            alienSmall = ImageIO.read(this.getClass().getResourceAsStream("enemy_small.png"));
             castle = ImageIO.read(this.getClass().getResourceAsStream("kingdom.jpg"));
             cursor = ImageIO.read(this.getClass().getResourceAsStream("cursor.png"));
             taskbar = ImageIO.read(this.getClass().getResourceAsStream("taskbar1.png"));
