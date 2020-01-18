@@ -188,6 +188,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         } else if( buttonPressed == button2 ) {
             bgColor = Color.WHITE;
             textField.setText( "Traveling to Kenzington Fields" );
+            game.changeScreen(game.screen2);
             this.repaint();
         } else if( buttonPressed == button3 ) {
             bgColor = Color.WHITE;

@@ -21,16 +21,15 @@ import javax.swing.JPanel;
 public class Screen extends JPanel {
     static final int WIDTH = 600;
     static final int HEIGHT = 800;
-    
-    public BufferedImage spaceShip;
-    public BufferedImage alien;
-    public BufferedImage alienSmall;
+
     public BufferedImage castle;
     public BufferedImage cursor;
     public BufferedImage taskbar;
     public BufferedImage background;
     public BufferedImage help;
     public BufferedImage market;
+    public BufferedImage tree;
+    public BufferedImage knight;
     
     JFrame frame;
     GridBagConstraints c;
@@ -52,7 +51,8 @@ public class Screen extends JPanel {
             taskbar = ImageIO.read(this.getClass().getResourceAsStream("taskbar1.png"));
             background = ImageIO.read(this.getClass().getResourceAsStream("Background.png"));
             help = ImageIO.read(this.getClass().getResourceAsStream("100.jpg"));
-            //market = ImageIO.read(this.getClass().getResourceAsStream("market.png"));
+            tree = ImageIO.read(this.getClass().getResourceAsStream("tree.png"));
+            knight = ImageIO.read(this.getClass().getResourceAsStream("Dark_Knight.png"));
         } catch( IOException e ) {
             System.out.println( "ERROR: unable to load image files" );
         }
