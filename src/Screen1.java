@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -76,7 +77,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         button2.addActionListener( this );
         button3.addActionListener( this );
         textField = new JTextField( 20 );
-        textField.setText( "Choose your fate" );
+        textField.setText( "Go to the kingdom for your first quest" );
         textField.setEditable( false );
         
 
