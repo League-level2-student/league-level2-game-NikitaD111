@@ -32,6 +32,7 @@ public class Screen extends JPanel {
     public BufferedImage knight;
     public BufferedImage cave;
     public BufferedImage house;
+    public BufferedImage deadf;
     
     
     JFrame frame;
@@ -58,6 +59,7 @@ public class Screen extends JPanel {
             knight = ImageIO.read(this.getClass().getResourceAsStream("Dark_Knight.png"));
             cave = ImageIO.read(this.getClass().getResourceAsStream("cave.jpg"));
             house = ImageIO.read(this.getClass().getResourceAsStream("house.png"));
+            deadf = ImageIO.read(this.getClass().getResourceAsStream("dead_field.png"));
         } catch( IOException e ) {
             System.out.println( "ERROR: unable to load image files" );
         }
