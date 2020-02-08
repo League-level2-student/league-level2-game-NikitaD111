@@ -32,11 +32,13 @@ public class Screen2 extends Screen implements KeyListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (int i = 0; i < 5; i++) {
-			g.drawImage(this.tree, bgX+i*800 ,0, 800, Screen.HEIGHT, null);
+			g.drawImage(this.tree, bgX+i*800 ,0, 800, Screen.HEIGHT, null);	
 		}
-		
-		
-		g.drawImage(this.knight, 300, 500, 250, 250, null);
+		for (int i = 0; i < 2; i++) {
+			g.drawImage(this.cave, (bgX+i*800)+4800,0,1000,Screen.HEIGHT,null);
+		}
+	    g.drawImage(this.house, bgX+4000,50,1000, Screen.HEIGHT,null);
+		g.drawImage(this.knight, 300, 450, 250, 250, null);
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -48,7 +50,7 @@ public class Screen2 extends Screen implements KeyListener {
 		int key = e.getKeyCode();
 		System.out.println(key);
 		if(key == KeyEvent.VK_D) {
-			bgX = bgX-100;
+			bgX = bgX-200;
 			repaint();
 		}
 		
