@@ -33,7 +33,10 @@ public class Screen extends JPanel {
     public BufferedImage cave;
     public BufferedImage house;
     public BufferedImage deadf;
-    
+    public BufferedImage SRF;
+    public BufferedImage door;
+    public BufferedImage dungeon;
+    public BufferedImage towerhall;
     
     JFrame frame;
     GridBagConstraints c;
@@ -60,6 +63,11 @@ public class Screen extends JPanel {
             cave = ImageIO.read(this.getClass().getResourceAsStream("cave.jpg"));
             house = ImageIO.read(this.getClass().getResourceAsStream("house.png"));
             deadf = ImageIO.read(this.getClass().getResourceAsStream("dead_field.png"));
+            SRF = ImageIO.read(this.getClass().getResourceAsStream("SRF.gif"));
+            door = ImageIO.read(this.getClass().getResourceAsStream("door.jpg"));
+            dungeon = ImageIO.read(this.getClass().getResourceAsStream("dungeon.png"));
+            towerhall = ImageIO.read(this.getClass().getResourceAsStream("towerhall.jpeg"));
+            
         } catch( IOException e ) {
             System.out.println( "ERROR: unable to load image files" );
         }
