@@ -29,7 +29,6 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
 
     JPanel a;
     JLabel labelStory;
-    JButton button1;
     JButton button2;
     JButton button3;
     JTextField textField;
@@ -65,15 +64,14 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         labelStory = new JLabel( "         Choose where you want to go" );
         labelStory.setFont( new Font( "Tahoma", ( Font.BOLD | Font.ITALIC ), 24 ) );
 
-        button1 = new JButton( "Market" );
+        
         button2 = new JButton( "Fields" );
         button3 = new JButton( "Kingdom" );
 
         // Don't allow button presses to shift focus on the keyListener in the frame
-        button1.setFocusable( false );
+       
         button2.setFocusable( false );
         button3.setFocusable( false );
-        button1.addActionListener( this );
         button2.addActionListener( this );
         button3.addActionListener( this );
         textField = new JTextField( 20 );
@@ -123,13 +121,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         
         gc.insets = new Insets( 20, 0, 0, 0 );
 
-        gc.anchor = GridBagConstraints.CENTER;
-        gc.fill = GridBagConstraints.NONE;
-        gc.gridx = 0;
-        gc.gridy = 1;
-        gc.ipadx = 0;
-        gc.ipadx = 100;
-        a.add( button1, gc );
+     
 
         gc.anchor = GridBagConstraints.CENTER;
         gc.fill = GridBagConstraints.NONE;
@@ -181,12 +173,8 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
     public void actionPerformed(ActionEvent arg0) {
         JButton buttonPressed = (JButton)arg0.getSource();
 
-        if( buttonPressed == button1 ) {
-            bgColor = Color.WHITE;
-            textField.setText( "Traveling to Everlast Market" );
-            
-            this.repaint();
-        } else if( buttonPressed == button2 ) {
+          
+          if( buttonPressed == button2 ) {
             bgColor = Color.WHITE;
             textField.setText( "Traveling to Kenzington Fields" );
             game.changeScreen(game.screen2);

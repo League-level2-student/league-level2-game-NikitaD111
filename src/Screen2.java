@@ -15,6 +15,7 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 	int bgX = 0;
 	int bgS = 1;
 	int knightX = 300;
+	int stage = 0;
 
 	public Screen2(Struggle_of_Order game) {
 		super(game.frame);
@@ -36,6 +37,9 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		if (stage == 0) {
+			
+		
 		for (int i = 0; i < 5; i++) {
 			g.drawImage(this.tree, bgX + i * 800, 0, 800, Screen.HEIGHT, null);
 		}
@@ -48,7 +52,14 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 		g.drawImage(this.deadf, bgX + 9000, 0, 1000, Screen.HEIGHT, null);
 		g.drawImage(this.deadf, bgX + 10000, 0, 1000, Screen.HEIGHT, null);
 		g.drawImage(this.knight, knightX, 450, 250, 250, null);
+		}
+		else if(stage == 1) {
+			for (int i = 0; i < 6; i++) {
+				g.drawImage(this.dungeon, bgX +i *800 , 0, 1000, Screen.HEIGHT, null);
 
+			}
+				g.drawImage(this.knight, knightX, 450, 250, 250, null);
+				}
 	}
 
 	@Override
@@ -102,9 +113,11 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 		System.out.println(bgX);
 		System.out.println(sX);
 		System.out.println(sY);
-		if(bgX>3500 && bgX<4500) {
-			if (sX>=245 && sX<=255 && sY>=572 && sY<=593) {
+		if(bgX<-3500 && bgX>-4500) {
+			if (sX>=210 && sX<=255 && sY>=572 && sY<=593) {
 				System.out.println("clicked");
+				stage = 1;
+				bgX = 0;
 			}
 		}
 		//x=245 y=572
