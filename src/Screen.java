@@ -38,7 +38,7 @@ public class Screen extends JPanel {
     public BufferedImage dungeon;
     public BufferedImage fighter;
     public BufferedImage loser;
-   
+    
     
     JFrame frame;
     GridBagConstraints c;

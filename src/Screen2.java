@@ -16,7 +16,7 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 	int bgX = 0;
 	int bgS = 1;
 	int knightX = 300;
-	int stage = 0;
+	int stage = 1;
 
 	public Screen2(Struggle_of_Order game) {
 		super(game.frame);
@@ -58,6 +58,8 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 				g.drawImage(this.dungeon, bgX + i * 800, 0, 1000, Screen.HEIGHT, null);
 
 			}
+			
+			g.drawImage(this.SRF, bgX + 4000, 0, 1000, Screen.HEIGHT, null);
 			g.drawImage(this.knight, knightX, 450, 250, 250, null);
 		}
 	}
@@ -72,6 +74,7 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 		int key = e.getKeyCode();
 		System.out.println(key);
 		if (key == KeyEvent.VK_D) {
+			if(stage == 0) {
 			if ((bgX <= -3100 && bgX > -4000) || (bgX <= -4200 && bgX > -5700) || bgX <= -7200 && bgX > -8000
 					|| bgX <= -10100 && bgX > -11000 || bgX <= -11200 && bgX > -10000000) {
 				if (knightX >= 1000) {
@@ -90,28 +93,43 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 					knightX = knightX + 200;
 				}
 			} else {
+				// Code that moves the background
 				bgX = bgX - 100;
 				if (bgX == -11200) {
 					JOptionPane.showMessageDialog(null, "I'm sorry to tell you this but...");
 					JOptionPane.showMessageDialog(null, "You're tonights biggest loser");
-					JOptionPane.showMessageDialog(null, "You went the wrong way");
-					for (int i = 0; i < 1000; i++) {
-						JOptionPane.showMessageDialog(null, "L");
-						System.out.println(i);
+					
 					}
-					JOptionPane.showMessageDialog(null, "You did it");
-					JOptionPane.showMessageDialog(null, "psych your still tonights biggest loser");
-					for (int i = 0; i < 1000000000; i++) {
-					JOptionPane.showMessageDialog(null, "L" );
-					}
+					
 					
 				
 				}
+			} else if( stage == 1 ) {
+				//If end of background 
+				if(bgX <= -3200 && bgX > -3400 ) {
+					
+					// If knight is past right side of screen
+					if (knightX >= 1000) {
+						knightX = 300;
+						
+						bgX = -4000;
+					} else {
+						//move knight to the right
+						knightX = knightX + 200;
+					}
+					
+				//Not end of background
+				}else {
+					bgX = bgX - 100;
+				} 
+				}
 			}
+			
 			repaint();
 		}
+		
 
-	}
+	
 	
 	@Override
 	public void keyReleased(KeyEvent e) {
