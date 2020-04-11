@@ -16,7 +16,7 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 	int bgX = 0;
 	int bgS = 1;
 	int knightX = 300;
-	int stage = 1;
+	int stage = 0;
 
 	public Screen2(Struggle_of_Order game) {
 		super(game.frame);
@@ -106,13 +106,14 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 				}
 			} else if( stage == 1 ) {
 				//If end of background 
-				if(bgX <= -3200 && bgX > -3400 ) {
-					
+				if( (bgX <= -3200 && bgX > -3400) || (bgX <= -4200 && bgX > -4400) ) {
 					// If knight is past right side of screen
 					if (knightX >= 1000) {
-						knightX = 300;
+						knightX = 100;
+						if(bgX > -4000) {
+							bgX = -4000;
+						}
 						
-						bgX = -4000;
 					} else {
 						//move knight to the right
 						knightX = knightX + 200;

@@ -56,12 +56,12 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
     }
     
     public void setup() {
-        this.game.frame.setTitle( "Struggle_of_Order" );
+        this.game.frame.setTitle( "Struggle of Order" );
         this.setLayout( new BorderLayout() );
         
         bgColor = Color.GREEN;
         
-        labelStory = new JLabel( "         Choose where you want to go" );
+        labelStory = new JLabel( "  Choose where you want to go" );
         labelStory.setFont( new Font( "Tahoma", ( Font.BOLD | Font.ITALIC ), 24 ) );
 
         
@@ -74,8 +74,8 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         button3.setFocusable( false );
         button2.addActionListener( this );
         button3.addActionListener( this );
-        textField = new JTextField( 20 );
-        textField.setText( "Go to the kingdom for your first quest" );
+        textField = new JTextField( 30 );
+        textField.setText( "Go to the kingdom to start your journey" );
         textField.setEditable( false );
         
 
@@ -182,6 +182,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         } else if( buttonPressed == button3 ) {
             bgColor = Color.WHITE;
             textField.setText( "Traveling to The Cerean Kingdom" );
+            game.changeScreen(game.screen3);
             this.repaint();
         }
         

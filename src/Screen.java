@@ -38,6 +38,8 @@ public class Screen extends JPanel {
     public BufferedImage dungeon;
     public BufferedImage fighter;
     public BufferedImage loser;
+    public BufferedImage kingdom;
+    public BufferedImage npc;
     
     
     JFrame frame;
@@ -70,6 +72,8 @@ public class Screen extends JPanel {
             dungeon = ImageIO.read(this.getClass().getResourceAsStream("dungeon.png"));
             fighter = ImageIO.read(this.getClass().getResourceAsStream("knight1.png"));
             loser = ImageIO.read(this.getClass().getResourceAsStream("loser.jpg"));
+           kingdom = ImageIO.read(this.getClass().getResourceAsStream("Cerean.png"));
+           npc = ImageIO.read(this.getClass().getResourceAsStream("NPC1.png"));
            
             
         } catch( IOException e ) {

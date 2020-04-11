@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 	        screen0 = new Screen0( this );
 	        screen1 = new Screen1( this );
 	        screen2 = new Screen2( this );
+	        screen3 = new Screen3( this );
 	        
 	        
 	        changeScreen( screen0 );
