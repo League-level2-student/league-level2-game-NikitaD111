@@ -72,8 +72,8 @@ public class Screen extends JPanel {
             dungeon = ImageIO.read(this.getClass().getResourceAsStream("dungeon.png"));
             fighter = ImageIO.read(this.getClass().getResourceAsStream("knight1.png"));
             loser = ImageIO.read(this.getClass().getResourceAsStream("loser.jpg"));
-           kingdom = ImageIO.read(this.getClass().getResourceAsStream("Cerean.png"));
-           npc = ImageIO.read(this.getClass().getResourceAsStream("NPC1.png"));
+           kingdom = ImageIO.read(this.getClass().getResourceAsStream("Cerean.jpg"));
+           npc = ImageIO.read(this.getClass().getResourceAsStream("TownKnight.png.jpg"));
            
             
         } catch( IOException e ) {

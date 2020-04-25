@@ -16,7 +16,7 @@ public class Screen3 extends Screen implements MouseListener {
 		this.game = struggle_of_Order;
 	}
 	public void setup() {
-		game.frame.setPreferredSize(new Dimension(800, Screen.HEIGHT));
+		game.frame.setPreferredSize(new Dimension(1000, Screen.HEIGHT));
 		game.frame.pack();
 		game.frame.addMouseListener(this);
 		this.setFocusable(true);
@@ -25,8 +25,9 @@ public class Screen3 extends Screen implements MouseListener {
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(this.kingdom, 0, 0, 800, Screen.HEIGHT, null);
-		g.drawImage(this.npc, 10, 500, 200, 200, null);
+		g.drawImage(this.kingdom, 0, 0, 1000, Screen.HEIGHT, null);
+		g.drawImage(this.npc, 25, 350, 250, 200, null);
+		g.drawImage(this.taskbar,0 , 550, 1000, 200, null);
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
