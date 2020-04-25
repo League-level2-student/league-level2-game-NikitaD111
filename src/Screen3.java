@@ -3,10 +3,16 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Screen3 extends Screen implements MouseListener {
 	private Struggle_of_Order game;
+	JPanel b;
+	JButton back;
+	JTextField textfield1;
 	public Screen3(JFrame frame) {
 		super(frame);
 		
@@ -19,6 +25,7 @@ public class Screen3 extends Screen implements MouseListener {
 		game.frame.setPreferredSize(new Dimension(1000, Screen.HEIGHT));
 		game.frame.pack();
 		game.frame.addMouseListener(this);
+		back = new JButton(" Back ");
 		this.setFocusable(true);
 		this.repaint();
 		game.frame.repaint();
@@ -26,7 +33,7 @@ public class Screen3 extends Screen implements MouseListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(this.kingdom, 0, 0, 1000, Screen.HEIGHT, null);
-		g.drawImage(this.npc, 25, 350, 250, 200, null);
+		g.drawImage(this.npc, 25, 250, 425, 400, null);
 		g.drawImage(this.taskbar,0 , 550, 1000, 200, null);
 	}
 	@Override

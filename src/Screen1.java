@@ -29,6 +29,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
 
     JPanel a;
     JLabel labelStory;
+    
     JButton button2;
     JButton button3;
     JTextField textField;
