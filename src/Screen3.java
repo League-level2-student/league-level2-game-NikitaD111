@@ -25,7 +25,11 @@ public class Screen3 extends Screen implements MouseListener {
 		game.frame.setPreferredSize(new Dimension(1000, Screen.HEIGHT));
 		game.frame.pack();
 		game.frame.addMouseListener(this);
+		b = new JPanel();
 		back = new JButton(" Back ");
+		textfield1 = new JTextField();
+		textfield1.setText(" Hello fellow knight we need some help. The kingdom is in danger and you arethe only one that can help");
+		
 		this.setFocusable(true);
 		this.repaint();
 		game.frame.repaint();
