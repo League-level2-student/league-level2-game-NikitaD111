@@ -147,14 +147,13 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 		int sX = e.getX();
 	
 		int sY = e.getY();
-		System.out.println(bgX);
-		System.out.println(sX);
-		System.out.println(sY);
 		if (bgX < -3500 && bgX > -4500) {
 			if (sX >= 210 && sX <= 255 && sY >= 572 && sY <= 593) {
 				System.out.println("clicked");
 				stage = 1;
 				bgX = 0;
+				
+				
 			}
 		}
 		// x=245 y=572

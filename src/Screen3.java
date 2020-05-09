@@ -37,15 +37,17 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
 	g.drawImage(this.kingdom, 0, 0, 1000, Screen.HEIGHT, null);
 		g.drawImage(this.npc, 25, 250, 425, 400, null);
 		g.drawImage(this.taskbar,0 , 550, 1000, 200, null);
+		g.setFont(new Font("Playfair Display", Font.PLAIN, 20));
+		g.drawString("Hello fellow knight we need some help."
+				+ " The kingdom is in danger and we need your help.", 50,650);
+		g.drawString("Head to the fields and kill all of the enemies.", 250, 675);
+		
 	}
 	public void setup() {
 		game.frame.setPreferredSize(new Dimension(1000, Screen.HEIGHT));
 		game.frame.pack();
 		game.frame.addMouseListener(this);
-		
-		text = new JLabel( "  Choose where you want to go" );
-        text.setFont( new Font( "Tahoma", ( Font.BOLD | Font.ITALIC ), 24 ) );
-
+        
 		this.setLayout( new GridBagLayout() );
         this.setBackground(new Color(0,0,0,0));
         this.setPreferredSize( new Dimension( Screen.WIDTH, Screen.HEIGHT / 4 ) );
@@ -54,8 +56,6 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
         this.setAlignmentY( Component.BOTTOM_ALIGNMENT );
         
 		addButtons();
-		//textfield1 = new JTextField(50);
-		//textfield1.setText(" Hello fellow knight we need some help. The kingdom is in danger and you arethe only one that can help");
 		
 		this.setFocusable(true);
 		this.repaint();
@@ -68,7 +68,7 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
 	        back.setFocusable(false);
 	        back.addActionListener(this);
 		
-	        gc.insets = new Insets( 20, 0, 0, 0 );
+	        gc.insets = new Insets( 700, 900, 0, 0 );
 
 	     
 
@@ -77,8 +77,9 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
 	        gc.gridx = 1;
 	        gc.gridy = 1;
 	        this.add( back, gc );
+	        
 	  }
-	
+	   
 	public void cleanUp() {
 		super.cleanUp();
 		game.frame.setPreferredSize(new Dimension(Screen.WIDTH, Screen.HEIGHT));
