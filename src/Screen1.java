@@ -18,6 +18,7 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
@@ -175,15 +176,20 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         JButton buttonPressed = (JButton)arg0.getSource();
 
           
-          if( buttonPressed == button2 ) {
+          if( buttonPressed == button3 || sword == 1 ) {
             bgColor = Color.WHITE;
             textField.setText( "Traveling to Kenzington Fields" );
-            game.changeScreen(game.screen2);
-            this.repaint();
-        } else if( buttonPressed == button3 ) {
+            game.changeScreen(game.screen3);
+            this.repaint();  
+        } 
+          else if(buttonPressed == button3 || sword == 0) {
+        	  JOptionPane.showMessageDialog(null, "Theres seems to be a strange strong silk covering the enetrance to the woods"
+        	  		+ " maybe if you had a sword you could get through");
+          }
+          else if( buttonPressed == button2 ) {
             bgColor = Color.WHITE;
             textField.setText( "Traveling to The Cerean Kingdom" );
-            game.changeScreen(game.screen3);
+            game.changeScreen(game.screen2);
             this.repaint();
         }
         

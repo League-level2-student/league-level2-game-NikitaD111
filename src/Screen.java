@@ -48,6 +48,8 @@ public class Screen extends JPanel {
     Audio audio;
     Visual visual;
     
+    int sword = 0;
+    
     public Screen( JFrame frame ) {
         this.frame = frame;
         

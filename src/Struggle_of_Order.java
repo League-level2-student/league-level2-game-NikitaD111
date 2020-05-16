@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 	    Screen screen1;
 	    Screen screen2;
 	    Screen screen3;
+	    
 
 	    public  Struggle_of_Order() {
 	        frame = new JFrame();
@@ -25,6 +26,7 @@ import javax.swing.JOptionPane;
 	        screen1 = new Screen1( this );
 	        screen2 = new Screen2( this );
 	        screen3 = new Screen3( this );
+	        
 	        
 	        
 	        changeScreen( screen0 );

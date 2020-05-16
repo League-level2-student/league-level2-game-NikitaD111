@@ -14,6 +14,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -21,6 +22,7 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
 	private Struggle_of_Order game;
 	JPanel b;
 	JButton back;
+	JButton weapon;
 	JTextField textfield1;
 	JLabel text;
 	public Screen3(JFrame frame) {
@@ -41,6 +43,7 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
 		g.drawString("Hello fellow knight we need some help."
 				+ " The kingdom is in danger and we need your help.", 50,650);
 		g.drawString("Head to the fields and kill all of the enemies.", 250, 675);
+		g.drawString("Here is the weapon you shall use to destroy your enemies", 200, 700);
 		
 	}
 	public void setup() {
@@ -67,6 +70,10 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
 	        back = new JButton(" Back ");
 	        back.setFocusable(false);
 	        back.addActionListener(this);
+	        
+	        weapon = new JButton(" Weapon ");
+	        weapon.setFocusable(false);
+	        weapon.addActionListener(this);
 		
 	        gc.insets = new Insets( 700, 900, 0, 0 );
 
@@ -77,6 +84,11 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
 	        gc.gridx = 1;
 	        gc.gridy = 1;
 	        this.add( back, gc );
+	        
+	        gc.insets = new Insets( 680, 50, 0, 0 );
+	        gc.gridx = 1;
+	        gc.gridy = 1;
+	        this.add(weapon, gc);
 	        
 	  }
 	   
@@ -117,7 +129,10 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
 		if( buttonpressed == back) {
 			game.changeScreen(game.screen1);
 		}
-		
+		if( buttonpressed == weapon) {
+			JOptionPane.showMessageDialog(null, " You have acquired the sword ");
+			sword = 1;
+		}
 	}
 
 }
