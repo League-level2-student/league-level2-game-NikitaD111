@@ -85,7 +85,7 @@ public class Screen3 extends Screen implements MouseListener, ActionListener {
 	        gc.gridy = 1;
 	        this.add( back, gc );
 	        
-	        gc.insets = new Insets( 680, 50, 0, 0 );
+	        gc.insets = new Insets( 690, 50, 0, 0 );
 	        gc.gridx = 1;
 	        gc.gridy = 1;
 	        this.add(weapon, gc);

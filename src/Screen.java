@@ -40,6 +40,7 @@ public class Screen extends JPanel {
     public BufferedImage loser;
     public BufferedImage kingdom;
     public BufferedImage npc;
+    public BufferedImage zombie;
     
     
     JFrame frame;
@@ -48,7 +49,7 @@ public class Screen extends JPanel {
     Audio audio;
     Visual visual;
     
-    int sword = 0;
+    static int sword = 0;
     
     public Screen( JFrame frame ) {
         this.frame = frame;
@@ -76,6 +77,7 @@ public class Screen extends JPanel {
             loser = ImageIO.read(this.getClass().getResourceAsStream("loser.jpg"));
            kingdom = ImageIO.read(this.getClass().getResourceAsStream("Cerean.jpg"));
            npc = ImageIO.read(this.getClass().getResourceAsStream("TownKnight.png"));
+           zombie = ImageIO.read(this.getClass().getResourceAsStream("zombie.png"));
            
             
         } catch( IOException e ) {

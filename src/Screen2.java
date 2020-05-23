@@ -17,6 +17,7 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 	int bgS = 1;
 	int knightX = 300;
 	int stage = 0;
+	boolean inbattle = false;
 
 	public Screen2(Struggle_of_Order game) {
 		super(game.frame);
@@ -58,9 +59,17 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 				g.drawImage(this.dungeon, bgX + i * 800, 0, 1000, Screen.HEIGHT, null);
 
 			}
+			System.out.println(bgX);
+			if(bgX == -2000) {
+				g.drawImage(this.zombie, bgX + 2450, 350, 325, 250, null);
+				g.drawImage(this.taskbar, bgX + 1950, 550, 1000, 200, null);
+				inbattle = true;
+			}			
 			
-			g.drawImage(this.SRF, bgX + 4000, 0, 1000, Screen.HEIGHT, null);
+			else {
 			g.drawImage(this.knight, knightX, 450, 250, 250, null);
+			}
+			g.drawImage(this.SRF, bgX + 4000, 0, 1000, Screen.HEIGHT, null);
 		}
 	}
 
@@ -121,7 +130,9 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 					
 				//Not end of background
 				}else {
+					if(inbattle == false) {
 					bgX = bgX - 100;
+					}
 				} 
 				}
 			}

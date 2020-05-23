@@ -175,21 +175,22 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
     public void actionPerformed(ActionEvent arg0) {
         JButton buttonPressed = (JButton)arg0.getSource();
 
-          
-          if( buttonPressed == button3 || sword == 1 ) {
+            System.out.println(sword);
+          if( buttonPressed == button2 && sword == 1 ) {
+        	
             bgColor = Color.WHITE;
             textField.setText( "Traveling to Kenzington Fields" );
-            game.changeScreen(game.screen3);
+            game.changeScreen(game.screen2);
             this.repaint();  
         } 
-          else if(buttonPressed == button3 || sword == 0) {
-        	  JOptionPane.showMessageDialog(null, "Theres seems to be a strange strong silk covering the enetrance to the woods"
+          else if(buttonPressed == button2 && sword == 0) {
+        	  JOptionPane.showMessageDialog(null, "Theres seems to be a strange strong silk covering the entrance to the woods"
         	  		+ " maybe if you had a sword you could get through");
           }
-          else if( buttonPressed == button2 ) {
+          else if( buttonPressed == button3 ) {
             bgColor = Color.WHITE;
             textField.setText( "Traveling to The Cerean Kingdom" );
-            game.changeScreen(game.screen2);
+            game.changeScreen(game.screen3);
             this.repaint();
         }
         
