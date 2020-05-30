@@ -1,5 +1,9 @@
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -9,8 +13,9 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
-public class Screen2 extends Screen implements KeyListener, MouseListener {
+public class Screen2 extends Screen implements KeyListener, MouseListener, ActionListener {
 	private Struggle_of_Order game;
 	ArrayList<BufferedImage> fields;
 	int bgX = 0;
@@ -18,6 +23,8 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 	int knightX = 300;
 	int stage = 0;
 	boolean inbattle = false;
+	Timer battletimer = new Timer(1000,this);
+	int battlecount = 0;
 
 	public Screen2(Struggle_of_Order game) {
 		super(game.frame);
@@ -61,9 +68,25 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 			}
 			System.out.println(bgX);
 			if(bgX == -2000) {
-				g.drawImage(this.zombie, bgX + 2450, 350, 325, 250, null);
+				
+				if( !inbattle ) {
+					battlecount = 12;
+					inbattle = true;
+					battletimer.start();
+				}
+				if( inbattle && battlecount == 0) {
+					game.changeScreen(game.screen4);
+				}
+						
+						
+				
+				g.drawImage(this.zombie, bgX + 2450, 310, 325, 250, null);
 				g.drawImage(this.taskbar, bgX + 1950, 550, 1000, 200, null);
-				inbattle = true;
+				g.setFont(new Font("Arial",Font.PLAIN, 30));
+				g.setColor(Color.BLACK);
+				g.drawString("time left: " +battlecount, 100, 100);
+				
+				
 			}			
 			
 			else {
@@ -184,5 +207,12 @@ public class Screen2 extends Screen implements KeyListener, MouseListener {
 	@Override
 	public void mouseExited(MouseEvent e) {
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		battlecount --;
+		repaint();
 	}
 }

@@ -41,6 +41,7 @@ public class Screen extends JPanel {
     public BufferedImage kingdom;
     public BufferedImage npc;
     public BufferedImage zombie;
+    public BufferedImage endgame;
     
     
     JFrame frame;
@@ -78,7 +79,7 @@ public class Screen extends JPanel {
            kingdom = ImageIO.read(this.getClass().getResourceAsStream("Cerean.jpg"));
            npc = ImageIO.read(this.getClass().getResourceAsStream("TownKnight.png"));
            zombie = ImageIO.read(this.getClass().getResourceAsStream("zombie.png"));
-           
+           endgame = ImageIO.read(this.getClass().getResourceAsStream("endgame.jpg"));
             
         } catch( IOException e ) {
             System.out.println( "ERROR: unable to load image files" );
