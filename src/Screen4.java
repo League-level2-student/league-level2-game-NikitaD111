@@ -48,7 +48,7 @@ public class Screen4 extends Screen implements ActionListener {
 
     public void paintComponent(Graphics g) {
         super.paintComponent( g );
-        g.drawImage(this.endgame , 0 , 0, Screen.WIDTH, Screen.HEIGHT, null);
+        g.drawImage(this.endgame , 0 , 0, 800, Screen.HEIGHT, null);
     }
 
     @Override

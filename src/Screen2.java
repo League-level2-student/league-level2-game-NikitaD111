@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -32,7 +33,35 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 		fields = new ArrayList<BufferedImage>();
 		fields.add(tree);
 		fields.add(tree);
+		getKeys();
+	}
+	
+	public void getKeys(){
+		int[] randomKeys = new int[ 26 ];
+		for (int i = 0; i < randomKeys.length; i++) {
+			randomKeys[ i ] = (int)'a' + i;
+			System.out.println((char) randomKeys[i]);
+		}
+		for (int i = 0; i < 1000 ; i++) {
+			int randIndex1 = new Random().nextInt( 26 );
+			int randIndex2 = new Random().nextInt( 26 );
+			
+			// index: 2, 22
+			// value: c, v
+			// temp = c
+			//        v, v
+			//        v, c swapped!
+			
+			
+			int temp = randomKeys[ randIndex1 ];
+			randomKeys[ randIndex1 ] = randomKeys[ randIndex2 ];
+			randomKeys[ randIndex2 ] = temp;
+		}
 
+		for (int i = 0; i < randomKeys.length; i++) {
+			System.out.println((char) randomKeys[i]);
+		}
+		
 	}
 
 	public void setup() {
@@ -70,11 +99,11 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 			if(bgX == -2000) {
 				
 				if( !inbattle ) {
-					battlecount = 12;
+				   battlecount = 0;
 					inbattle = true;
 					battletimer.start();
 				}
-				if( inbattle && battlecount == 0) {
+				if( inbattle && battlecount == 12 + 6) {
 					game.changeScreen(game.screen4);
 				}
 						
@@ -84,7 +113,15 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 				g.drawImage(this.taskbar, bgX + 1950, 550, 1000, 200, null);
 				g.setFont(new Font("Arial",Font.PLAIN, 30));
 				g.setColor(Color.BLACK);
-				g.drawString("time left: " +battlecount, 100, 100);
+				g.setFont(new Font("Kalam",Font.PLAIN, 30));
+				if(battlecount <= 5) {
+					g.drawString("You have encountered a zombie!", bgX + 2075, 655);
+				}
+				else {
+					g.drawString("time left: " + ( 12 + 6 - battlecount ), 100, 100);
+				}
+				
+				
 				
 				
 			}			
@@ -212,7 +249,7 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		battlecount --;
+		battlecount ++;
 		repaint();
 	}
 }
