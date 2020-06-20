@@ -26,6 +26,9 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 	boolean inbattle = false;
 	Timer battletimer = new Timer(1000,this);
 	int battlecount = 0;
+	int[] keys;
+	int keyIndex = 0;
+	boolean zombieDefeated = false;
 
 	public Screen2(Struggle_of_Order game) {
 		super(game.frame);
@@ -33,10 +36,10 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 		fields = new ArrayList<BufferedImage>();
 		fields.add(tree);
 		fields.add(tree);
-		getKeys();
+		keys = getKeys();
 	}
 	
-	public void getKeys(){
+	public int[] getKeys(){
 		int[] randomKeys = new int[ 26 ];
 		for (int i = 0; i < randomKeys.length; i++) {
 			randomKeys[ i ] = (int)'a' + i;
@@ -61,6 +64,7 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 		for (int i = 0; i < randomKeys.length; i++) {
 			System.out.println((char) randomKeys[i]);
 		}
+		return randomKeys;
 		
 	}
 
@@ -103,7 +107,8 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 					inbattle = true;
 					battletimer.start();
 				}
-				if( inbattle && battlecount == 12 + 6) {
+				if( inbattle && battlecount == 20 + 6) {
+					inbattle = false;
 					game.changeScreen(game.screen4);
 				}
 						
@@ -117,8 +122,16 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 				if(battlecount <= 5) {
 					g.drawString("You have encountered a zombie!", bgX + 2075, 655);
 				}
+				else if(zombieDefeated == true) {
+					g.drawString(" You defeated the zombie ", bgX + 2075, 655);
+				}
+				
 				else {
-					g.drawString("time left: " + ( 12 + 6 - battlecount ), 100, 100);
+					g.drawString("time left: " + ( 20 + 6 - battlecount ), 100, 100);
+					g.setColor(Color.WHITE);
+					g.setFont(new Font("Arial",Font.PLAIN, 25));
+					g.drawString(" " + (char)keys [ keyIndex ], 400, 300);
+					// "" + (char)keys[ keyIndex ];
 				}
 				
 				
@@ -142,6 +155,17 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		System.out.println(key);
+				
+		if( inbattle && stage == 1 ) {
+		// e.getKeyCode()
+		    if(Character.toLowerCase( e.getKeyCode() ) == keys[keyIndex] ) {
+			    keyIndex = keyIndex + 1;
+			    if(keyIndex > 26) {
+			    	zombieDefeated = true;
+			    }
+		    }
+		}
+		
 		if (key == KeyEvent.VK_D) {
 			if(stage == 0) {
 			if ((bgX <= -3100 && bgX > -4000) || (bgX <= -4200 && bgX > -5700) || bgX <= -7200 && bgX > -8000
@@ -188,17 +212,22 @@ public class Screen2 extends Screen implements KeyListener, MouseListener, Actio
 						knightX = knightX + 200;
 					}
 					
+
+					
 				//Not end of background
-				}else {
+				}
+				else {
+					
 					if(inbattle == false) {
 					bgX = bgX - 100;
 					}
-				} 
+					
 				}
 			}
-			
-			repaint();
 		}
+			
+		repaint();
+	}
 		
 
 	
