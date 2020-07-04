@@ -24,7 +24,7 @@ public class Screen extends JPanel {
 
     public BufferedImage castle;
     public BufferedImage cursor;
-    public BufferedImage taskbar;
+    static public BufferedImage taskbar;
     public BufferedImage background;
     public BufferedImage help;
     public BufferedImage market;
@@ -40,7 +40,7 @@ public class Screen extends JPanel {
     public BufferedImage loser;
     public BufferedImage kingdom;
     public BufferedImage npc;
-    public BufferedImage zombie;
+    static public BufferedImage zombie;
     public BufferedImage endgame;
     
     
